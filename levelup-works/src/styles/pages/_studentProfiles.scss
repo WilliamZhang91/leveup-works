@@ -1,0 +1,58 @@
+@import "../../styles/variables/Variables.scss";
+
+.flex-container {
+    @include flex();
+    flex-basis: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    height: 80vh;
+}
+
+.flex-item {
+    cursor: pointer;
+    flex: 1 1 1 1 auto;
+    padding: 2vh;
+    border: 1px transparent;
+    border-radius: 10px;
+    background-color: white;
+    color: gray;
+    width: 170px;
+    height: 140px;
+    font-size: 25px;
+    margin: 20px 40px;
+    text-align: center;
+}
+
+.profilePic {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 110px;
+    height: auto;
+}
+
+.userName  {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-button {
+    height: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px white; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #00b7ff; 
+    border-radius: 10px;
+  }

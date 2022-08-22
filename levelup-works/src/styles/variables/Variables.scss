@@ -1,0 +1,84 @@
+$templateColor: #00c2ff;
+$templateColor2: white;
+$templateColor3: #b1dfff;
+$templateColor4: #d0edff;
+$buttonColor: #ff0076;
+$buttonColor2: #daa000;
+$font: 'Dosis', sans-serif;
+$flex: flex;
+$width: 70%;
+$img-width: 100%;
+$relative: relative;
+$absolute: absolute;
+
+@mixin template () {
+    color: white;
+    width: $width;
+    margin: auto;
+    display: $flex;
+    justify-content: space-between;
+}
+
+@mixin align-center () {
+    width: $width;
+    margin: auto;
+    color: gray;
+}
+
+@mixin title-font () {
+    font-size: 40px;
+    font-weight: 550;
+}
+
+@mixin inner-image-position ($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    color: white;
+    text-align: center;
+}
+
+@mixin flex () {
+    display: flex;
+}
+
+@mixin none () {
+    display: none;
+}
+
+@mixin button ($background-color, $border, $width, $color) {
+    font-family: $font;
+    background-color: $background-color;
+    border: $border;
+    width: $width;
+    border-radius: 8px;
+    height: 35px;
+    color: $color;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+@mixin font-styling ($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin inner-image-size ($width) {
+    width: $width;
+    height: auto;
+}
+
+@mixin display-image ($show-image) {
+    width: $img-width;
+    display: $show-image
+}
+
+@mixin dashboard-layout() {
+    display: $flex;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+
+}
+

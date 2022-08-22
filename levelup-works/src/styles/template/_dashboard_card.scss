@@ -1,0 +1,9 @@
+@import "../variables/Variables.scss";
+
+.inner-card {
+    background-color: $templateColor4;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    border-radius: 40px;
+}

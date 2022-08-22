@@ -1,0 +1,42 @@
+@import "../../styles/variables/Variables.scss";
+
+.project_page_layout {
+    width: 70%;
+    margin: 100px auto;
+    color: #717171;
+}
+
+.project_page_layout2 {
+    display: flex;
+}
+
+.project_title {
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.project_subtitle {
+    font-size: 25px;
+    color: #717171;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.image {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+}
+
+.button-back-to-top {
+    @include button(#daa000, none, 170px, white);
+    margin: 0 60px 0 0;
+}
+
+.button-back-to-dashboard {
+    @include button(#00c2ff, none, 170px, white);
+}

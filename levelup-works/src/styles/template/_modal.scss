@@ -1,0 +1,38 @@
+.blur {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    
+    /* Full height */
+    height: 100%; 
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    z-index: 1000; 
+    backdrop-filter: blur(10px);    
+    height: 100%; 
+}
+
+.border {
+    position: fixed;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    background-color: #F0F0F0;
+    z-index: 1000;
+    top: 9vh;
+    left: 10vw;
+    right: 10vw;
+    padding: 0 0 20px 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}

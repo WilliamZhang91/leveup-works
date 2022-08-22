@@ -1,0 +1,16 @@
+@import "../../styles/variables/Variables.scss";
+
+.profile_page_layout {
+    height: 100vh;
+    width: 70%;
+    margin: auto;
+    background-color: #efeff0
+}
+
+.profile_page_inner {
+    width: 70%;
+    display: flex;
+    justify-content:space-around;
+    padding: 100px 0;
+    margin: auto;
+}

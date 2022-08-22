@@ -1,0 +1,652 @@
+.dashboard-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+p {
+  font-size: 14px;
+}
+
+.sidebar {
+  width: 13%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #00c2ff;
+}
+
+.card {
+  width: 87%;
+  background-color: #b1dfff;
+}
+
+.teacher_pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 30px auto 35px auto;
+  width: 100%;
+}
+
+.sidebar .tabs div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  font-size: 13.5px;
+  font-weight: bold;
+  width: 100%;
+  margin: auto;
+  cursor: pointer;
+}
+
+.sidebar .tabs div div {
+  width: 75%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sidebar .links {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  font-size: 12px;
+  width: 75%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  cursor: pointer;
+}
+
+.sidebar .links div p {
+  cursor: pointer;
+}
+
+.sidebar .tabs div img {
+  height: 25px;
+  width: auto;
+  margin: auto 0;
+}
+
+.tab-selected {
+  background-color: #b1dfff;
+  color: gray;
+}
+
+.card-buttons {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 10px 10px;
+}
+
+.card-buttons .button-1 {
+  font-family: "Dosis", sans-serif;
+  background-color: #daa000;
+  border: 0px solid #daa000;
+  width: 200px;
+  border-radius: 8px;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin: auto 10px;
+  font-size: 17px;
+}
+
+.card-buttons .button-2 {
+  font-family: "Dosis", sans-serif;
+  background-color: #ff0076;
+  border: 0px solid #daa000;
+  width: 200px;
+  border-radius: 8px;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin: auto 10px;
+  font-size: 17px;
+}
+
+.card-buttons .button-3 {
+  font-family: "Dosis", sans-serif;
+  background-color: #00c2ff;
+  border: 0px solid #daa000;
+  width: 200px;
+  border-radius: 8px;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin: auto 10px;
+  font-size: 17px;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: scroll;
+  height: 80vh;
+}
+
+.flex-item {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 1 1 auto;
+          flex: 1 1 1 1 auto;
+  padding: 2vh;
+  border: 1px transparent;
+  border-radius: 10px;
+  background-color: white;
+  color: gray;
+  width: 170px;
+  height: 140px;
+  font-size: 25px;
+  margin: 20px 40px;
+  text-align: center;
+}
+
+.profilePic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  width: 110px;
+  height: auto;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-button {
+  height: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px white;
+          box-shadow: inset 0 0 5px white;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00b7ff;
+  border-radius: 10px;
+}
+
+.profile_page_layout {
+  height: 100vh;
+  width: 70%;
+  margin: auto;
+  background-color: #efeff0;
+}
+
+.profile_page_inner {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 100px 0;
+  margin: auto;
+}
+
+.project_page_layout {
+  width: 70%;
+  margin: 100px auto;
+  color: #717171;
+}
+
+.project_page_layout2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.project_title {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.project_subtitle {
+  font-size: 25px;
+  color: #717171;
+}
+
+.projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.image {
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+.button-back-to-top {
+  font-family: "Dosis", sans-serif;
+  background-color: #daa000;
+  border: none;
+  width: 170px;
+  border-radius: 8px;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 0 60px 0 0;
+}
+
+.button-back-to-dashboard {
+  font-family: "Dosis", sans-serif;
+  background-color: #00c2ff;
+  border: none;
+  width: 170px;
+  border-radius: 8px;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.hero-img-resize {
+  width: 100%;
+  display: none;
+}
+
+.hero-img-mobile {
+  width: 100%;
+  display: none;
+}
+
+.font-styling {
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.project-img {
+  width: 700px;
+  height: auto;
+}
+
+.one {
+  width: 70%;
+  margin: auto;
+  color: gray;
+  margin: 100px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.two {
+  width: 70%;
+  margin: auto;
+  color: gray;
+  text-align: center;
+  margin: 100px auto;
+}
+
+.three {
+  width: 70%;
+  margin: auto;
+  color: gray;
+  margin: 100px auto;
+  background-color: #efeff0;
+  width: 100%;
+  padding: 50px 0 80px 0;
+}
+
+.four {
+  width: 70%;
+  margin: auto;
+  color: gray;
+  margin: 100px auto;
+}
+
+.one-width {
+  width: 50%;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 550;
+}
+
+.blue-square {
+  width: 150px;
+  height: auto;
+}
+
+.relative {
+  position: relative;
+}
+
+.wrapper .relative:hover {
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+  cursor: pointer;
+}
+
+.inner-text {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  color: white;
+  text-align: center;
+  color: gray;
+  width: 34%;
+}
+
+.inner-image {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  color: white;
+  text-align: center;
+}
+
+.inner-image2 {
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.kids-img {
+  width: 300px;
+  height: auto;
+  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.244);
+}
+
+.button {
+  font-family: "Dosis", sans-serif;
+  background-color: white;
+  border: 3px solid #00c2ff;
+  width: 200px;
+  border-radius: 8px;
+  height: 35px;
+  color: gray;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.button-section-four1 {
+  font-family: "Dosis", sans-serif;
+  background-color: white;
+  border: 3px solid #00c2ff;
+  width: 200px;
+  border-radius: 8px;
+  height: 35px;
+  color: gray;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 0 5px 0 0;
+}
+
+.button-section-four2 {
+  font-family: "Dosis", sans-serif;
+  background-color: #ff0076;
+  border: 0px solid #ff0076;
+  width: 200px;
+  border-radius: 8px;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 0 0 0 5px;
+}
+
+@media (max-width: 1770px) {
+  .project-img {
+    width: 500px;
+  }
+  .font-styling {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .blue-square {
+    width: 120px;
+  }
+  .inner-image {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-align: center;
+  }
+  .inner-image-category {
+    width: 80%;
+    height: auto;
+  }
+  .title {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .kids-img {
+    width: 250px;
+  }
+  .inner-image2 {
+    font-size: 20px;
+  }
+  .classroom-image {
+    width: 100%;
+    margin: 0 10% 0 0;
+  }
+}
+
+@media (max-width: 1456px) {
+  .kids-img {
+    width: 220px;
+  }
+  .inner-image2 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1374px) {
+  .one {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .one-width {
+    width: 70%;
+    text-align: center;
+  }
+  .project-img {
+    width: 700px;
+  }
+  .inner-image {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    color: white;
+    text-align: center;
+  }
+  .flex {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .hero-img {
+    width: 100%;
+    display: none;
+  }
+  .hero-img-resize {
+    width: 100%;
+    display: block;
+  }
+  .classroom-image {
+    margin: auto;
+  }
+}
+
+@media (max-width: 1374px) {
+  .three {
+    text-align: center;
+  }
+  .section-three-description {
+    display: none;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .font-styling2 {
+    font-size: 25px;
+    font-weight: 900;
+  }
+  .flex2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1184px) {
+  .kids-img {
+    width: 200px;
+  }
+  .button {
+    font-family: "Dosis", sans-serif;
+    background-color: white;
+    border: 3px solid #00c2ff;
+    width: 150px;
+    border-radius: 8px;
+    height: 35px;
+    color: gray;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .kids-inner-image2 {
+    display: none;
+  }
+  .inner-image2 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1028px) {
+  .project-img {
+    width: 650px;
+  }
+  .flex {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media (max-width: 800px) {
+  .project-img {
+    width: 500px;
+  }
+}
+
+@media (max-width: 412px) {
+  .project-img {
+    width: 100%;
+  }
+  .flex {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .classroom-image {
+    width: 100%;
+  }
+  .hero-img-resize {
+    width: 100%;
+    display: none;
+  }
+  .hero-img-mobile {
+    width: 100%;
+    display: block;
+  }
+}
+/*# sourceMappingURL=homepage.css.map */

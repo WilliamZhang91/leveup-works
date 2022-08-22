@@ -1,0 +1,222 @@
+.blur {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  /* Full height */
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/opacity/see-through */
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  height: 100%;
+}
+
+.border {
+  position: fixed;
+  margin: auto;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  height: 80%;
+  background-color: #F0F0F0;
+  z-index: 1000;
+  top: 9vh;
+  left: 10vw;
+  right: 10vw;
+  padding: 0 0 20px 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.inner-card {
+  background-color: #d0edff;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  border-radius: 40px;
+}
+
+.spinner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.spinner_svg {
+  width: 70px;
+  height: auto;
+}
+
+.progress-tracker-card {
+  color: white;
+  width: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  height: 100px;
+  color: black;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20px;
+  margin-top: 30px;
+}
+
+.project-number {
+  margin: auto;
+  border: 1px solid black;
+  height: 25px;
+  width: 25px;
+  border-radius: 50px;
+  color: black;
+  text-align: center;
+  -webkit-box-shadow: 5px 10px #888888;
+          box-shadow: 5px 10px #888888;
+}
+
+.highlight {
+  background-color: aqua;
+}
+
+.width {
+  width: 100%;
+  background-color: #00c2ff;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.header {
+  height: 65px;
+  color: white;
+  width: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer {
+  padding: 100px 0;
+  color: white;
+  width: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-dashboard {
+  width: 100%;
+  height: 65px;
+  background-color: white;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  height: 60px;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav .login {
+  margin: auto 10px;
+  cursor: pointer;
+}
+
+.nav .links {
+  margin: auto 15px;
+  cursor: pointer;
+}
+
+.nav .flag {
+  width: 22px;
+  height: 12px;
+  margin: 0 5px;
+}
+
+.nav p {
+  font-size: 10px;
+}
+
+.none {
+  display: none;
+}
+
+@media (max-width: 1374px) {
+  .footer-links {
+    display: none;
+  }
+  .footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 1028px) {
+  .nav {
+    display: none;
+  }
+}
+/*# sourceMappingURL=template.css.map */

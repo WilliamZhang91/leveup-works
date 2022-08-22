@@ -1,0 +1,101 @@
+@import "../../styles/variables/Variables.scss";
+
+.dashboard-layout {
+    @include dashboard-layout();
+}
+
+p {
+    font-size: 14px;
+}
+
+.sidebar {
+    width: 13%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $templateColor;
+}
+
+.card {
+    width: 87%;
+    background-color: $templateColor3;
+}
+
+.teacher_pic {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 35px auto;
+    width: 100%;
+}
+
+.sidebar .tabs div {
+    display: flex;
+    color: white;
+    font-size: 13.5px;
+    font-weight: bold;
+    width: 100%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.sidebar .tabs div div {
+    width: 75%;
+    justify-content: space-between;
+}
+
+.sidebar .links {
+    color: white;
+    display: flex;
+    margin: 0 auto;
+    font-size: 12px;
+    width: 75%;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.sidebar .links div p {
+    cursor: pointer;
+}
+
+.sidebar .tabs div img {
+    height: 25px;
+    width: auto;
+    margin: auto 0;
+}
+
+.tab-selected {
+    background-color: $templateColor3;
+    color: gray
+}
+
+.card-buttons {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 10px;
+}
+
+.card-buttons .button-1 {
+    @include button ($buttonColor2, 0px solid $buttonColor2, 200px, white);
+    margin: auto 10px;
+    font-size: 17px
+}
+
+.card-buttons .button-2 {
+    @include button ($buttonColor, 0px solid $buttonColor2, 200px, white);
+    margin: auto 10px;
+    font-size: 17px
+}
+
+.card-buttons .button-3 {
+    @include button ($templateColor, 0px solid $buttonColor2, 200px, white);
+    margin: auto 10px;
+    font-size: 17px
+}
+
+
+
+
+
+
