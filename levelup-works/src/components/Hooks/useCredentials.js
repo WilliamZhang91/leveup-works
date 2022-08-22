@@ -11,11 +11,11 @@ export const useCredentials = () => {
     const getIdTokenStudent = async (scope) => {
         try {
             const accessToken = await getAccessTokenSilently({
-                audience: 'https://levelupworks.sample',
+                audience: process.env.REACT_APP_AUDIENCE,
                 scope: scope,
             });
             console.log(accessToken)
-            const idToken = await Axios.get(`https://dev-qbmp2m5w.us.auth0.com/v2/userinfo`, {
+            const idToken = await Axios.get(process.env.REACT_APP_ID_TOKEN, {
                 headers: {
                     authorization: `Bearer ${accessToken}`,
                 }
@@ -31,10 +31,10 @@ export const useCredentials = () => {
     const getIdTokenTeacher = async (scope) => {
         try {
             const accessToken = await getAccessTokenSilently({
-                audience: 'https://levelupworks.sample',
+                audience: process.env.REACT_APP_AUDIENCE,
                 scope: scope,
             });
-            const idToken = await Axios.get(`https://dev-qbmp2m5w.us.auth0.com/v2/userinfo`, {
+            const idToken = await Axios.get(process.env.REACT_APP_ID_TOKEN, {
                 headers: {
                     authorization: `Bearer ${accessToken}`,
                 }
@@ -50,10 +50,10 @@ export const useCredentials = () => {
         if (isAuthenticated) {
             try {
                 const accessToken = await getAccessTokenSilently({
-                    audience: 'https://levelupworks.sample',
+                    audience: process.env.REACT_APP_AUDIENCE,
                     scope: scope,
                 });
-                const idToken = await Axios.get(`https://dev-qbmp2m5w.us.auth0.com/v2/userinfo`, {
+                const idToken = await Axios.get(process.env.REACT_APP_ID_TOKEN, {
                     headers: {
                         authorization: `Bearer ${accessToken}`,
                     }

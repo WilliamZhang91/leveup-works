@@ -15,7 +15,7 @@ export const useStudentProfiles = () => {
         });
         console.log({accessToken: accessToken})
 
-        return await Axios.get(process.env.REACT_APP_AUDIENCE, {
+        return await Axios.get(process.env.REACT_APP_FETCH_ALL_STUDENTS, {
             headers: {
                 authorization: `Bearer ${accessToken}`
             },

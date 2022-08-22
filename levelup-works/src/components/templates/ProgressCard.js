@@ -51,26 +51,40 @@ export const ProgressCard = () => {
 
     return <>
         {
-        groupByKeyResult.length === 0 ? null
-        :
-        groupByKeyResult.map((progress) => {
-            return <>
-                <div className="progress-tracker-card">
-                    <div style={{ width: "15%" }}>{progress.student}</div>
-                    {
-                        array.map((value) => {
-                            progress.data.map((data) => {
-                                if (value === data.projectID) {
-                                    console.log(`value: ${value} is equal to projectID: ${data.projectID}`)
-                                    return <span className="project-number highlight">x</span>
-                                };
-                            });
+            groupByKeyResult.length === 0 ? null
+                :
+                groupByKeyResult.map((progress) => {
+                    return <>
+                        <div className="progress-tracker-card">
+                            <div style={{ width: "15%" }}>{progress.student}</div>
 
-                        })
-                    }
-                </div>
-            </>
-        })
+                            {
+                                array.map((value) => {
+                                    return progress.data.map((data) => {
+                                        // value === data.projectID ? (
+                                        //     <span className="project-number highlight">x</span>
+                                        // ) : (
+                                        //     <span className="project-number">{value}</span>
+                                        // )
+                                        // {
+                                        return (() => {
+                                            if (value === data.projectID) {
+                                                console.log(`value: ${value} is equal to studentID: ${data.studentID}, projectID: ${data.projectID}`)
+                                                return (
+                                                    <span className="project-number highlight">{data.projectID}</span>
+                                                )
+                                            } else {
+                                                return <span className="project-number">{value}</span>
+                                            }
+
+                                        })()
+                                    })
+                                })
+                            }
+
+                        </div>
+                    </>
+                })
         }
     </>
 };
