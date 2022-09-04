@@ -11,6 +11,7 @@ import "../../styles/template/template.css";
 import star from "../../images/star.png";
 import star2 from "../../images/star2.png";
 import Axios from "axios";
+import emptyAvatar from "../../images/empty_avatar.png"
 
 export const Header = ({ isDashboardOpen }) => {
 
@@ -20,6 +21,8 @@ export const Header = ({ isDashboardOpen }) => {
     const toggleModal = () => {
         setShowModal(!showModal);
     };
+
+    const avatar = <img src={emptyAvatar} style={{ width: "40px", height: "auto", margin: "auto" }} />
 
     const getPrivateRoute = async () => {
         try {
@@ -80,20 +83,27 @@ export const Header = ({ isDashboardOpen }) => {
                     <Link to="project_library" style={{ textDecoration: "none", color: "white", margin: "auto 15px" }}>
                         <h3 className="links">PROJECTS</h3>
                     </Link>
-                    <Link to="/teacher_account/teacher_dashboard" style={{ textDecoration: "none", color: "white", margin: "auto 15px" }}>
-                        <h3 className="links">TEACHERS</h3>
-                    </Link>
+                    {
+                        isAuthenticated ?
+                            <Link to="/teacher_account/teacher_dashboard" style={{ textDecoration: "none", color: "white", margin: "auto 15px" }}>
+                                <h3 className="links">TEACHERS</h3>
+                            </Link>
+                            :
+                            <div className="links" style={{ fontSize: "19px" }}>
+                                <LoginButton login={"TEACHER"} />
+                            </div>
+                    }
                 </div>
                 <div>
                     <div className={`${isDashboardOpen ? "nav none" : "nav"}`}>
                         <h3 data-testid="login" className="login">
-                            <LoginButton />
+                            <LoginButton login={avatar} />
                             <ProfileHeader />
                         </h3>
                         <h3>|</h3>
                         <h3 data-testid="register" className="login">
-                            <SignUpButton />
                             <LogoutButton />
+                            <SignUpButton />
                         </h3>
                     </div>
                 </div>
@@ -101,7 +111,3 @@ export const Header = ({ isDashboardOpen }) => {
         </div>
     </>
 };
-
-//make a table of completed projects that include the project id,
-//date of completion, student id, and have that reference both the
-//student and projects table

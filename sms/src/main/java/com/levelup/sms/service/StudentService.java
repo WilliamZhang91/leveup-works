@@ -1,11 +1,6 @@
 package com.levelup.sms.service;
 
-import com.levelup.sms.model.ProgressHistory;
-import com.levelup.sms.model.Project;
-import com.levelup.sms.model.Role;
-import com.levelup.sms.model.Student;
-import org.apache.http.auth.Credentials;
-
+import com.levelup.sms.model.*;
 import java.util.List;
 
 public interface StudentService {
@@ -27,4 +22,7 @@ public interface StudentService {
     public List<ProgressHistory> getAllProgressHistory();
     public List<ProgressHistory> getProgressHistory();
 
+
+    //FileDB
+//    public FileDB saveFileDB(FileDB fileDB);
 }

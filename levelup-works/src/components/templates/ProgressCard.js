@@ -30,61 +30,138 @@ export const ProgressCard = () => {
         fetchProgressHistory();
     }, []);
 
-    //console.log({ projectLibrary: projectLibrary && projectLibrary })
-    const groupByKey = () => Object.values(
-        progressHistory && progressHistory.reduce((res, item) => {
-            const id = item["studentID"]
-            const student = item["student"]
-            const existing = res[id] || { ["studentID"]: id, ["student"]: student, data: [] }
-            return {
-                ...res,
-                [id]: {
-                    ...existing,
-                    data: [...existing.data, item]
-                }
-            }
-        }, {})
-    );
+    const newProgressHistory = progressHistory && progressHistory.map((el) => {
+        return {
+            name: el.student,
+            arr: el.projectID,
+            completed: true
+        };
+    });
 
-    const groupByKeyResult = groupByKey(progressHistory && progressHistory, "studentID");
-    console.log(groupByKeyResult)
+    const newProgressHistory2 = progressHistory && progressHistory.map((el) => {
+        return {
+            name: el.student,
+            projectID: el.projectID,
+            completed: true
+        };
+    });
+
+    console.log({ newProgressHistory2: newProgressHistory2 })
+
+    // const progress = Object.values(progressHistory && newProgressHistory.reduce((a, { name, arr }) => {
+    //     a[name] = a[name] || { name, arr: new Set() };
+    //     a[name].arr.add(arr);
+    //     return a;
+    // }, {})).map(({ name, arr }) => ({ name, arr: [...arr] }));
+
+    // console.log(progress)
+
+    // progress.map((p) => {
+    //     let newArr = []
+    //     p.arr.map((i) => {
+    //         return array.map(a => {
+    //             if (i !== a) {
+    //                 newArr.push(a)
+    //             }
+    //         })
+    //     })
+    //     console.log({newArr:newArr})
+    // })
+
+    // const progress2 = (data, key) => Object.values(
+    //     data.reduce((res, item) => {
+    //         const student = item[key]
+    //         // const projectID = item[key2] //e.g. item["projectID"] = 1
+    //         // console.log(student)
+    //         // console.log(projectID)
+    //         //console.log({res: res})
+    //         const existing = res[student] || { [key]: student, data: [] }
+    //         //console.log(existing)
+    //         return {
+    //             ...res,
+    //             [student]: {
+    //                 ...existing,
+    //                 data: [...existing.data, item]
+    //             }
+    //         }
+    //     }, {})
+    // );
+
+    let obj = {}
+    obj["name"] = "hello"
+    obj["name2"] = "goodbye"
+    obj["name3"] = {}
+    obj["name3"]["innername"] = "feet"
+    console.log(obj)
+
+    const progress2 = newProgressHistory2.reduce(function (r, a) {
+        //a = newProgressHistory2[1][2][3] etc
+        r[a.name] = r[a.name] || [];
+        r[a.name]["completed"] = r[a.name]["completed"] || [];
+        r[a.name]["completed"].push(a);
+        return r;
+    }, Object.create(null));
+
+
+    //console.log({ progress: progress })
+    //console.log(progress2(newProgressHistory2, "name"))
+
+    // const myArray = new Object();
+    // for (let i = 1; i < 16; i++) {
+    //     myArray["projectID"] = i
+    // }
+
+    // console.log({myArray: myArray})
+
+
+    // const progress2 = Object.entries(
+    //     // What you have done
+    //     newProgressHistory2.reduce((acc, { name, projectID, incomplete }) => {
+    //         // Group initialization
+    //         console.log({ acc: acc })
+    //         if (!acc[name]) acc[name] = {};
+    //         if (!acc[name]["complete"]) acc[name]["complete"] = {}
+    //         if (!acc[name]["incomplete"]) acc[name]["incomplete"] = {}
+
+    //         acc[name]["complete"] = { projectID }
+    //         // for (let i = 0; i < array.length; i++) {
+    //         //     return {
+
+    //         //     }
+    //         // }
+    //         return acc;
+    //     }, {})
+    // )
+
+    console.log(studentProfiles)
+    console.log({progress2: progress2})
+    console.log(newProgressHistory)
+
+
+    console.log(progress2)
 
     return <>
-        {
-            groupByKeyResult.length === 0 ? null
-                :
-                groupByKeyResult.map((progress) => {
-                    return <>
-                        <div className="progress-tracker-card">
-                            <div style={{ width: "15%" }}>{progress.student}</div>
-
-                            {
-                                array.map((value) => {
-                                    return progress.data.map((data) => {
-                                        // value === data.projectID ? (
-                                        //     <span className="project-number highlight">x</span>
-                                        // ) : (
-                                        //     <span className="project-number">{value}</span>
-                                        // )
-                                        // {
-                                        return (() => {
-                                            if (value === data.projectID) {
-                                                console.log(`value: ${value} is equal to studentID: ${data.studentID}, projectID: ${data.projectID}`)
-                                                return (
-                                                    <span className="project-number highlight">{data.projectID}</span>
-                                                )
-                                            } else {
-                                                return <span className="project-number">{value}</span>
-                                            }
-
-                                        })()
-                                    })
-                                })
-                            }
-
-                        </div>
-                    </>
-                })
-        }
+        <div className="progress-tracker-card">
+           
+        </div>
     </>
 };
+
+{/* // progress.length === 0 ? null
+            //     :
+            //     progress.map((p) => {
+            //         return <>
+            //             <div className="progress-tracker-card">
+            //                 <div style={{ width: "15%" }}>{p.name}</div>
+            //                 {
+            //                     p.arr.map((id) => {
+            //                         return array.map((value) => {
+            //                             if (id === value) {
+            //                                 return <span className="project-number highlight">{id}</span>
+            //                             }
+            //                         })
+            //                     })
+            //                 }
+            //             </div>
+            //         </>
+            //     }) */}

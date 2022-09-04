@@ -5,6 +5,7 @@ import { Header } from './components/templates/Header';
 import { Footer } from './components/templates/Footer';
 import { Homepage } from './components/pages/Homepage';
 import { TeacherDashboard } from "./components/pages/teacher_dashboard/TeacherDashboard";
+import { StudentDashboard } from "./components/pages/student_dashboard/StudentDashboard";
 import { ProfilePage } from "./components/pages/teacher_dashboard/ProfilePage";
 import { ProjectLibrary } from "./components/pages/teacher_dashboard/ProjectLibrary";
 import { ProjectDashboard } from "./components/pages/teacher_dashboard/ProjectDashboard";
@@ -51,18 +52,37 @@ function App() {
 
           {/*teacher routes*/}
           <Route element={<PrivateRouteTeacher isLoggedInTeacher={isLoggedInTeacher} />}>
-            <Route path="teacher_account/teacher_dashboard" element={<TeacherDashboard isDashboardOpen={isDashboardOpen} setIsDashboardOpen={setIsDashboardOpen} />} />
+            <Route
+              path="teacher_account/teacher_dashboard"
+              element={
+                <TeacherDashboard
+                  isDashboardOpen={isDashboardOpen}
+                  setIsDashboardOpen={setIsDashboardOpen}
+                />}
+            />
             <Route path="teacher_account/teacher_dashboard/profile/:id" element={<ProfilePage />} />
           </Route >
 
           {/*project routes*/}
           <Route path="project_library" element={<ProjectLibrary />} />
-          <Route path="project_library/project_dashboard" element={<ProjectDashboard setIsDashboardOpen={setIsDashboardOpen} />} />
+          <Route
+            path="project_library/project_dashboard"
+            element={
+              <ProjectDashboard setIsDashboardOpen={setIsDashboardOpen}
+              />}
+          />
 
           {/*user routes*/}
           <Route element={<PrivateRouteStudent isLoggedInStudent={isLoggedInStudent} />}>
             <Route path="account/user" element={<UserProfile />} />
-            <Route />
+            <Route
+              path="student_dashboard"
+              element={
+                <StudentDashboard
+                  isDashboardOpen={isDashboardOpen}
+                  setIsDashboardOpen={setIsDashboardOpen}
+                />}
+            />
           </Route>
         </Routes>
 

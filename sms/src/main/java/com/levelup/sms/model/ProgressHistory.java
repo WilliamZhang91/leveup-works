@@ -22,10 +22,6 @@ public class ProgressHistory implements Serializable {
     @JoinColumn(name="project_id")
     private Project project;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="student.studentID", referencedColumnName = "studentID")
-//    private Student student;
-
     public ProgressHistory() {}
 
     public Date getDateSubmitted() {

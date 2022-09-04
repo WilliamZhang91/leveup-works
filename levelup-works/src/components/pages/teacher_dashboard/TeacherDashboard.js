@@ -46,7 +46,7 @@ export const TeacherDashboard = ({ setIsDashboardOpen }) => {
                         className={tabSelected === 1 ? "tab-selected" : null}>
                         <div>
                             <img src={progress_tracker} alt="progress_tracker_tab" />
-                            <p data-testid="progress-tracker">PROGRESS TRACKER</p>
+                            <p data-testid="progress-tracker">PROGRESS</p>
                         </div>
                     </div>
                     <div onClick={() => {
@@ -62,19 +62,19 @@ export const TeacherDashboard = ({ setIsDashboardOpen }) => {
                     >
                         <div>
                             <img src={student_profiles} alt="student_profiles_tab" />
-                            <p>STUDENT PROFILES</p>
+                            <p>STUDENTS</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(3)} className={tabSelected === 3 ? "tab-selected" : null}>
                         <div>
                             <img src={help_request} alt="help_request_tab" />
-                            <p>HELP REQUESTS</p>
+                            <p>HELP</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(4)} className={tabSelected === 4 ? "tab-selected" : null}>
                         <div>
                             <img src={project_submissions} alt="project_submissions_tab" />
-                            <p>PROJECT SUBMISSIONS</p>
+                            <p>SUBMISSIONS</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(5)} className={tabSelected === 5 ? "tab-selected" : null}>
@@ -87,7 +87,7 @@ export const TeacherDashboard = ({ setIsDashboardOpen }) => {
                                     color: "white"
                                 }}
                             >
-                                <p>PROJECT LIBRARY</p>
+                                <p>PROJECTS</p>
                             </Link>
                         </div>
                     </div>

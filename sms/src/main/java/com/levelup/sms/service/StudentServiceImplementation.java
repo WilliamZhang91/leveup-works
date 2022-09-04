@@ -1,18 +1,20 @@
 package com.levelup.sms.service;
 
-import com.levelup.sms.model.ProgressHistory;
-import com.levelup.sms.model.Project;
-import com.levelup.sms.model.Role;
-import com.levelup.sms.model.Student;
-import com.levelup.sms.repository.ProgressHistoryRepository;
-import com.levelup.sms.repository.ProjectRepository;
-import com.levelup.sms.repository.RoleRepository;
-import com.levelup.sms.repository.StudentRepository;
+
+import com.levelup.sms.model.*;
+import com.levelup.sms.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.ls.LSProgressEvent;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Stream;
+
+import org.springframework.util.StringUtils;
+
 
 @Service
 public class StudentServiceImplementation implements StudentService{
@@ -72,4 +74,27 @@ public class StudentServiceImplementation implements StudentService{
     public Role createNewRole(Role role) {
         return roleRepository.save(role);
     }
+
+    //<FileDB> ------------------------------------------------------
+
+    @Autowired
+    private FileDBRepository fileDBRepository;
+
+    public FileDB store(MultipartFile file) throws IOException {
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+        FileDB fileDB = new FileDB(fileName, file.getContentType(), file.getBytes(), formattedDate);
+        return fileDBRepository.save(fileDB);
+    }
+
+    public FileDB getSubmission(String id) {
+        return fileDBRepository.findById(id).get();
+    }
+
+    public Stream<FileDB> getAllSubmissions() {
+        return fileDBRepository.findAll().stream();
+    }
+
 }
