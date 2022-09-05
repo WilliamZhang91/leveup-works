@@ -45,14 +45,14 @@ export const StudentDashboard = ({ isDashboardOpen, setIsDashboardOpen }) => {
                         className={tabSelected === 1 ? "tab-selected" : null}>
                         <div>
                             <img src={objectives} alt="objectives" />
-                            <p data-testid="progress-tracker">OBJECTIVES</p>
+                            <p data-testid="progress-tracker">AIM</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(2)}
                         className={tabSelected === 2 ? "tab-selected" : null}>
                         <div>
                             <img src={instructions} alt="instructions" />
-                            <p>INSTRUCTIONS</p>
+                            <p>GUIDE</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(3)} className={tabSelected === 3 ? "tab-selected" : null}>

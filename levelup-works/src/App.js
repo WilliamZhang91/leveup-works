@@ -73,7 +73,7 @@ function App() {
           />
 
           {/*user routes*/}
-          <Route element={<PrivateRouteStudent isLoggedInStudent={isLoggedInStudent} />}>
+          {/* <Route element={<PrivateRouteStudent isLoggedInStudent={isLoggedInStudent} />}> */}
             <Route path="account/user" element={<UserProfile />} />
             <Route
               path="student_dashboard"
@@ -83,7 +83,7 @@ function App() {
                   setIsDashboardOpen={setIsDashboardOpen}
                 />}
             />
-          </Route>
+          {/* </Route> */}
         </Routes>
 
       </main>

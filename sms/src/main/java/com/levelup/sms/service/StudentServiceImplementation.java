@@ -1,6 +1,5 @@
 package com.levelup.sms.service;
 
-
 import com.levelup.sms.model.*;
 import com.levelup.sms.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.util.StringUtils;
-
 
 @Service
 public class StudentServiceImplementation implements StudentService{
@@ -86,12 +84,17 @@ public class StudentServiceImplementation implements StudentService{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
         FileDB fileDB = new FileDB(fileName, file.getContentType(), file.getBytes(), formattedDate);
+
         return fileDBRepository.save(fileDB);
     }
 
-    public FileDB getSubmission(String id) {
-        return fileDBRepository.findById(id).get();
-    }
+//    public FileDB addID (ProgressHistoryID progressHistoryID) {
+//
+//    }
+
+//    public FileDB getSubmission(String id) {
+//        return fileDBRepository.findById(id).get();
+//    }
 
     public Stream<FileDB> getAllSubmissions() {
         return fileDBRepository.findAll().stream();

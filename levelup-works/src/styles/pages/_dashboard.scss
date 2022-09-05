@@ -2,6 +2,7 @@
 
 .dashboard-layout {
     @include dashboard-layout();
+    height: 100%;
 }
 
 .title-font {
@@ -101,6 +102,57 @@ p {
     margin: 0 50px;
 }
 
+.submissions-img {
+    width: 487px;
+    height: 256px;
+    object-fit: cover;
+}
+
+.submissions-button {
+    @include button($buttonColor, none, 200px, white);
+    height: 140px;
+    border-radius: 20px;
+    margin: 30px 0;
+}
+
+.upload-button {
+    @include button($buttonColor2, none, 150px, white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submissions-button img {
+    width: 50px;
+    height: auto;
+}
+
+.submissions-button div {
+    font-size: 20px;
+}
+
+.file-card {
+    background-color: #eeeeee;
+    border: 2px dashed rgb(174, 168, 168);
+    width: 487px;
+    height: 256px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line-in-middle {
+    width: 400px;
+    height: 100%;
+    background: linear-gradient(to right,
+            transparent 0%,
+            transparent calc(50% - 0.81px),
+            rgb(197, 197, 197) calc(50% - 0.8px),
+            rgb(197, 197, 197) calc(50% + 0.8px),
+            transparent calc(50% + 0.81px),
+            transparent 100%);
+}
+
 .card-buttons .button-1 {
     @include button ($buttonColor2, 0px solid $buttonColor2, 200px, white);
     margin: auto 10px;
@@ -119,7 +171,7 @@ p {
     font-size: 17px
 }
 
-@media (max-width: 1256px) {
+@media (max-width: 1629px) {
     .links {
         display: flex;
         flex-direction: column;
@@ -130,7 +182,7 @@ p {
         width: 8%
     }
 
-    .sidebar .tabs div p{
+    .sidebar .tabs div p {
         display: none
     }
 
@@ -144,9 +196,3 @@ p {
         width: 100%;
     }
 }
-
-
-
-
-
-
