@@ -7,6 +7,8 @@ Permissions are set depending on whether the user is a student/teacher.
 
 Also includes an upload functionality that allows students to submit images of projects they've completed to the database.
 
+Additional testing to be added.
+
 student 1: bobbybrown@email.com  password: Password123!@#
 teacher 1: teacher1@levelupworks.com password: Password123!@#
 
