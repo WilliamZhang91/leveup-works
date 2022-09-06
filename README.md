@@ -9,3 +9,5 @@ Also includes an upload functionality that allows students to submit images of p
 
 student 1: bobbybrown@email.com  password: Password123!@#
 teacher 1: teacher1@levelupworks.com password: Password123!@#
+
+![levelup-works-screenshot](https://user-images.githubusercontent.com/84298284/188531977-7ccca060-a1c4-41cd-847e-59955a07fbb0.png)
