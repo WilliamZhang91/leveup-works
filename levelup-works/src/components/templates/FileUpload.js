@@ -1,3 +1,4 @@
+import { Axios } from 'axios';
 import React, { useRef, useEffect } from 'react';
 import submit from "../../images/pages/dashboard/submit.png"
 import "../../styles/pages/homepage.css"
@@ -8,10 +9,6 @@ export const FileUpload = ({
     preview,
     setPreview
 }) => {
-
-    const fileUploadHandler = () => {
-
-    }
 
     const fileInputRef = useRef();
 

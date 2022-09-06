@@ -17,7 +17,7 @@ public class Student implements Serializable {
     private String School;
     private String picture;
     private int teacherID;
-    private long phone;
+    private Integer phone;
     private int role; //1: teacher, 2: student
 
     @JsonIgnore
@@ -26,9 +26,16 @@ public class Student implements Serializable {
 
     public Student() {}
 
-//    public Set<ProgressHistory> getProgressHistories() {
-//        return progressHistory;
-//    }
+    public Student(Integer student_id, String name, String email, String school, String picture, int teacherID, Integer phone, int role) {
+        this.student_id = student_id;
+        this.name = name;
+        this.email = email;
+        School = school;
+        this.picture = picture;
+        this.teacherID = teacherID;
+        this.phone = phone;
+        this.role = role;
+    }
 
     public int getStudentID() {
         return student_id;
