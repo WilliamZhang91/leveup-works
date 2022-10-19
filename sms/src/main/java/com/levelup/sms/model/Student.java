@@ -10,15 +10,15 @@ import java.util.Set;
 @Entity
 public class Student implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto init
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer student_id;
     private String name;
     private String email;
     private String School;
     private String picture;
-    private int teacherID;
+    private Integer teacherID;
     private Integer phone;
-    private int role; //1: teacher, 2: student
+    private Integer role; //1: teacher, 2: student
 
     @JsonIgnore
     @OneToMany(mappedBy = "student")
@@ -26,14 +26,46 @@ public class Student implements Serializable {
 
     public Student() {}
 
-    public Student(Integer student_id, String name, String email, String school, String picture, int teacherID, Integer phone, int role) {
+    public Student(Integer student_id, String name, String email, String school, String picture, Integer teacherID, Integer phone, Integer role) {
         this.student_id = student_id;
         this.name = name;
         this.email = email;
-        School = school;
+        this.School = school;
         this.picture = picture;
         this.teacherID = teacherID;
         this.phone = phone;
+        this.role = role;
+    }
+
+    public void setStudent_id(Integer student_id) {
+        this.student_id = student_id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSchool(String school) {
+        School = school;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public void setTeacherID(Integer teacherID) {
+        this.teacherID = teacherID;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public void setRole(Integer role) {
         this.role = role;
     }
 

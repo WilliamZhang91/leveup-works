@@ -1,0 +1,1 @@
+INSERT INTO STUDENT (student_id, name, email, school, picture, teacherID, phone, role) VALUES (1, "Bobby Brown", "bobbybrown@email.com", "Glenfield Primary School", "", 0, 12345678, 1);

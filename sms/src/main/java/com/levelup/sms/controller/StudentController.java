@@ -1,9 +1,10 @@
 package com.levelup.sms.controller;
 
 import com.levelup.sms.model.Student;
-import com.levelup.sms.service.StudentService;
+import com.levelup.sms.service.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,14 +30,19 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+//    @GetMapping("/{studentId}")
+//    public Student getStudent(@PathVariable("studentId") Integer studentId) {
+//        List<Student> aStudent = getAllStudents();
+//        for (Student student : aStudent) {
+//            if (student.getStudentID() == studentId.intValue()) {
+//                return student;
+//            }
+//        }
+//        return null;
+//    }
+
     @GetMapping("/{studentId}")
-    public Student getStudent(@PathVariable("studentId") Integer studentId) {
-        List<Student> aStudent = getAllStudents();
-        for (Student student : aStudent) {
-            if (student.getStudentID() == studentId.intValue()) {
-                return student;
-            }
-        }
-        return null;
+    public ResponseEntity<Student> getStudentById(@PathVariable("studentId") Integer studentId) {
+        return studentService.getStudentById(studentId);
     }
 }

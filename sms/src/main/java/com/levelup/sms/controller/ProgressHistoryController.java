@@ -1,13 +1,13 @@
 package com.levelup.sms.controller;
 
+import com.levelup.sms.message.ResponseMessage;
 import com.levelup.sms.model.ProgressHistory;
-import com.levelup.sms.service.StudentService;
+import com.levelup.sms.service.progress.ProgressHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,12 +15,33 @@ import java.util.List;
 @RequestMapping(path = "/students", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin(origins = "*")
 public class ProgressHistoryController {
+
     @Autowired
-    private StudentService studentService;
+    private ProgressHistoryService progressHistoryService;
 
     @GetMapping("/progress_history")
-    public List<ProgressHistory> getProgressHistory() {
-        return studentService.getProgressHistory();
+    public List<ProgressHistory> getAllProgressHistory() {
+        return progressHistoryService.getProgressHistory();
     }
 
+    @PostMapping(value = "/submit", consumes = {
+            MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE
+    })
+    public ResponseEntity<ResponseMessage> submitFile(
+            @RequestParam("student_id") Integer student,
+            @RequestParam("project_id") Integer project)
+    {
+        String message = "";
+        try {
+            progressHistoryService.saveProgressHistory(student, project);
+            message = "Uploaded file successfully";
+            return ResponseEntity.status(HttpStatus.OK).
+                    body(new ResponseMessage(message));
+        } catch (Exception e) {
+            message = "File could not be uploaded";
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).
+                    body(new ResponseMessage(message));
+        }
+    }
 }

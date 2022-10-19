@@ -13,11 +13,11 @@ import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.oauth2.jwt.JwtValidators;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.stereotype.Component;
 
-@Configuration
 @EnableWebSecurity
+@Component
 public class SecurityConfig {
-
 
     @Value("${auth0.audience}")
     String audience;
@@ -46,12 +46,11 @@ public class SecurityConfig {
                 .mvcMatchers("/account/public").permitAll()
                 .mvcMatchers("/account/private").authenticated()
                 .mvcMatchers("/account/private-scoped").authenticated()
-                //teacher
                 .mvcMatchers("/student/all_students").hasAuthority("SCOPE_read:teacher")
                 .mvcMatchers("/student/{studentId}").permitAll()
+                .mvcMatchers("/project/all_projects").permitAll()
                 .and().cors()
                 .and().oauth2ResourceServer().jwt();
         return http.build();
     }
-
 }

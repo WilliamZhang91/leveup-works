@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface ProgressHistoryRepository extends JpaRepository<ProgressHistory, Integer> {
     @Query(value = "SELECT * FROM progress INNER JOIN student ON progress.student_id = student.student_id", nativeQuery = true)
-
     List<ProgressHistory> getProgressHistory();
 }

@@ -2,49 +2,75 @@ package com.levelup.sms.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 @Table(name="progress")
 public class ProgressHistory implements Serializable {
     @EmbeddedId
-    ProgressHistoryID id;
-    private Date date_submitted;
-    private Date completed;
+    private ProgressHistoryID id;
 
     @MapsId("project")
-    @ManyToOne
-    @JoinColumn(name="student_id")
-    private Student student;
-
-    @MapsId("student")
     @ManyToOne
     @JoinColumn(name="project_id")
     private Project project;
 
-    public ProgressHistory() {}
+    @MapsId("student")
+    @ManyToOne
+    @JoinColumn(name="student_id")
+    private Student student;
 
-    public Date getDateSubmitted() {
+    private String fileName;
+    private String date_submitted;
+    private String completed;
+    @Lob
+    private byte[] data;
+
+    public ProgressHistory() {
+    }
+
+    public ProgressHistory(ProgressHistoryID id, String date_submitted, String complete) {
+        this.id = id;
+        this.date_submitted = date_submitted;
+        this.completed = complete;
+    }
+
+    public ProgressHistoryID getId() {
+        return id;
+    }
+
+    public void setId(ProgressHistoryID id) {
+        this.id = id;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getDate_submitted() {
         return date_submitted;
     }
 
-    public Date getDateCompleted() {
+    public void setDate_submitted(String date_submitted) {
+        this.date_submitted = date_submitted;
+    }
+
+    public String getCompleted() {
         return completed;
     }
 
-    public int getStudentID() {
-        return student.getStudentID();
+    public void setCompleted(String completed) {
+        this.completed = completed;
     }
 
-    public String getStudent() {
-        return student.getName();
+    public byte[] getData() {
+        return data;
     }
 
-    public int getProjectID() {
-        return project.getProjectID();
-    }
-
-    public String getProject() {
-        return project.getSubjectMatter2();
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }
