@@ -44,42 +44,32 @@ export const TeacherDashboard = ({ setIsDashboardOpen }) => {
                     </section>
                     <div onClick={() => toggleTab(1)}
                         className={tabSelected === 1 ? "tab-selected" : null}>
-                        <div>
-                            <img src={progress_tracker} alt="progress_tracker_tab" />
-                            <p data-testid="progress-tracker">PROGRESS</p>
+                        <div data-testid="progress-tracker">
+                            <img src={progress_tracker} alt="progress_tracker" />
+                            <p>PROGRESS</p>
                         </div>
                     </div>
-                    <div onClick={() => {
-                        toggleTab(2);
-                        fetchStudentProfiles();
-                    }}
-                        className={
-                            tabSelected === 2 ?
-                                "tab-selected"
-                                :
-                                null
-                        }
-                    >
-                        <div>
-                            <img src={student_profiles} alt="student_profiles_tab" />
+                    <div onClick={() => { toggleTab(2); fetchStudentProfiles(); }} className={tabSelected === 2 ? "tab-selected" : null}>
+                        <div data-testid="students">
+                            <img src={student_profiles} alt="student_profiles" />
                             <p>STUDENTS</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(3)} className={tabSelected === 3 ? "tab-selected" : null}>
-                        <div>
-                            <img src={help_request} alt="help_request_tab" />
+                        <div data-testid="help">
+                            <img src={help_request} alt="help_request" />
                             <p>HELP</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(4)} className={tabSelected === 4 ? "tab-selected" : null}>
-                        <div>
-                            <img src={project_submissions} alt="project_submissions_tab" />
+                        <div data-testid="submissions">
+                            <img src={project_submissions} alt="project_submissions" />
                             <p>SUBMISSIONS</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(5)} className={tabSelected === 5 ? "tab-selected" : null}>
-                        <div>
-                            <img src={project_library} alt="project_library_tab" />
+                        <div data-testid="projects">
+                            <img src={project_library} alt="project_library" />
                             <Link
                                 to="/project_library"
                                 style={{

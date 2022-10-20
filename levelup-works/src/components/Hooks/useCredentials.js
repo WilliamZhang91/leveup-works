@@ -23,8 +23,7 @@ export const useCredentials = () => {
             console.log("getIdTokenStudent called")
             return idToken.data;
         } catch (error) {
-            console.log(error.message)
-            return null;
+            throw error;
         };
     };
 
@@ -42,7 +41,7 @@ export const useCredentials = () => {
             setTeacherIdToken(idToken.data)
             console.log(accessToken);
         } catch (error) {
-            console.log(error.message)
+            throw error
         };
     };
 
@@ -60,7 +59,7 @@ export const useCredentials = () => {
                 });
                 return idToken;
             } catch (error) {
-                console.log(error.message)
+                throw error
             };
         };
     };

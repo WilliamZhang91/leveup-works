@@ -8,8 +8,6 @@ export const LoginButton = ({ login }) => {
         isAuthenticated,
     } = useAuth0();
 
-    console.log(typeof login)
-
     return !isAuthenticated && <div style={{ height: "100%" }} onClick={() => loginWithRedirect()}>
         <div>{login}</div>
     </div>

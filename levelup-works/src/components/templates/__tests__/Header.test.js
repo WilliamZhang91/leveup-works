@@ -1,15 +1,8 @@
-import React, { useState } from "react";
 import { Header } from "../Header";
 import App from "../../../App";
-import { Modal } from "../Modal";
-import { fireEvent, getRoles, renderHook } from "@testing-library/react";
-import { TeacherDashboard } from "../../pages/teacher_dashboard/TeacherDashboard";
-import { Homepage } from "../../pages/Homepage";
 import { render, cleanup, screen } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter, Router } from 'react-router-dom';
 import { createMemoryHistory } from "history";
-import star from "../../../images/star.png";
-import { act } from "react-dom/test-utils";
 
 describe("Test header component", () => {
 
@@ -34,10 +27,13 @@ describe("Test header component", () => {
         expect(screen.getAllByText(/register/i)).toBeInTheDocument;
     });
 
-    test("Login button is rendered", () => {
-        headerComponent.getByTestId("login");
-        expect(screen.getAllByText(/log in/i));
-    });
+    // test("empty avatar image is rendered", () => {
+    //     isDashboardOpen = false;
+    //     // headerComponent.getByTestId("empty-avatar")
+    //     // expect(emptyAvatar).toContain(emptyAvatar);
+    //     headerComponent.getByTestId("empty-avatar")
+    //     expect(screen).toContain(emptyAvatar);
+    // });
 
     test("Large logo image is displayed", async () => {
         const logo = document.querySelector("img");
@@ -54,17 +50,17 @@ describe("Test header component", () => {
         expect(headerComponent).toBeTruthy();
     });
 
-    test("Teacher link redirects back to home page if there is no teacher login", () => {
-        const history = createMemoryHistory({ initialEntries: ["/"] });
-        const { getByText } = render(
-            <Router location={history.location} navigator={history}>
-                <Homepage />
-            </Router>
-        );
-        expect(history.location.pathname).toBe('/');
-        fireEvent.click(getByText("TEACHERS"));
-        expect(history.location.pathname).toBe("/")
-    });
+    // test("Teacher link redirects back to home page if there is no teacher login", () => {
+    //     const history = createMemoryHistory({ initialEntries: ["/"] });
+    //     const { getByText } = render(
+    //         <Router location={history.location} navigator={history}>
+    //             <Homepage />
+    //         </Router>
+    //     );
+    //     expect(history.location.pathname).toBe('/');
+    //     fireEvent.click(getByText("TEACHERS"));
+    //     expect(history.location.pathname).toBe("/")
+    // });
 
     test("Header logo should change when dashboard is open", () => {
         isDashboardOpen = true;

@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 export const StudentProfiles = ({ tabSelected, studentProfiles }) => {
 
-    console.log({ studentProfiles: studentProfiles.data })
-
     return <>
         <div style={{ display: tabSelected === 2 ? "block" : "none" }}>
             <div className='flex-container'>

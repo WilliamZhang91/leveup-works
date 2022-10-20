@@ -1,7 +1,7 @@
 import { Axios } from 'axios';
 import React, { useRef, useEffect } from 'react';
-import submit from "../../images/pages/dashboard/submit.png"
-import "../../styles/pages/homepage.css"
+import submit from "../../images/pages/dashboard/submit.png";
+import "../../styles/pages/homepage.css";
 
 export const FileUpload = ({
     file,
@@ -15,20 +15,20 @@ export const FileUpload = ({
     const onClickHandler = (e) => {
         e.preventDefault();
         fileInputRef.current.click();
-    }
+    };
 
     const onChangeHandler = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setFile(file)
+            setFile(file);
         } else {
-            setFile(null)
-        }
-    }
+            setFile(null);
+        };
+    };
 
     const removeImage = () => {
         setFile(null)
-    }
+    };
 
     useEffect(() => {
         if (file) {

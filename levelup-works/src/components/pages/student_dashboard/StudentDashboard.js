@@ -43,32 +43,32 @@ export const StudentDashboard = ({ isDashboardOpen, setIsDashboardOpen }) => {
                     </section>
                     <div onClick={() => toggleTab(1)}
                         className={tabSelected === 1 ? "tab-selected" : null}>
-                        <div>
+                        <div data-testid="aim">
                             <img src={objectives} alt="objectives" />
-                            <p data-testid="progress-tracker">AIM</p>
+                            <p>AIM</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(2)}
                         className={tabSelected === 2 ? "tab-selected" : null}>
-                        <div>
+                        <div data-testid="guide">
                             <img src={instructions} alt="instructions" />
                             <p>GUIDE</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(3)} className={tabSelected === 3 ? "tab-selected" : null}>
-                        <div>
+                        <div data-testid="tutorial">
                             <img src={video} alt="tutorial" />
                             <p>TUTORIAL</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(4)} className={tabSelected === 4 ? "tab-selected" : null}>
-                        <div>
+                        <div data-testid="project">
                             <img src={project} alt="project" />
                             <p>PROJECT</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(5)} className={tabSelected === 5 ? "tab-selected" : null}>
-                        <div>
+                        <div data-testid="submit">
                             <img src={submit} alt="submit" />
                             <p>SUBMIT</p>
                         </div>

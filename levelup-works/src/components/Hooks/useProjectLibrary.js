@@ -3,8 +3,16 @@ import Axios from "axios";
 
 export const useProjectLibrary = () => {
 
-    const [projectLibrary, setProjectLibrary] = useState({});
+    const [project, setProject] = useState({});
+    const [projectLibrary, setProjectLibrary] = useState([]);
     const [progressHistory, setProgressHistory] = useState([]);
+    const [copyProjectLibrary, setCopyProjectLibrary] = useState([])
+    const [filterValues, setFilterValues] = useState({
+        name: "",
+        value: "",
+        checked: true,
+    });
+
     const [isChecked, setIsChecked] = useState({
         advanced: true,
         beginner: true,
@@ -17,6 +25,7 @@ export const useProjectLibrary = () => {
         free: true,
         premium: true,
     });
+
     const [filterCategories, setFilterCategories] = useState(
         {
             course: ["advanced", "beginner", "intermediate"],
@@ -25,117 +34,104 @@ export const useProjectLibrary = () => {
         },
     );
 
-    const handleFilterChange = (e, index) => {
-        const { value, checked, name } = e.target;
-        const selection = { ...filterCategories };
-        let newSelection;
-        let newSelectionAdd;
-        const addSelection = (category, value) => {
-            const selection = { ...filterCategories };
-            newSelectionAdd = value
-        }
-        const removeSelection = (category, value) => {
-            const selection = { ...filterCategories };
-            newSelection = selection[category].filter((val) => {
-                return val !== value
-            });
-        };
-        if (checked) {
-            if (name === "subjectMatter1") { //maths, science, art, etc
-                setIsChecked((prevState) => {
-                    return { ...prevState, [value]: true }
-                });
-                addSelection(name, value);
-                setFilterCategories((prevState) => ({
-                    ...prevState,
-                    [name]: [...prevState[name], newSelectionAdd]
-                }));
-                console.log(filterCategories)
-            } else if (name === "subscription") { //free, premium
-                setIsChecked((prevState) => {
-                    return { ...prevState, [value]: true }
-                });
-                addSelection(name, value);
-                setFilterCategories((prevState) => ({
-                    ...prevState,
-                    [name]: [...prevState[name], newSelectionAdd]
-                }));
-                console.log(filterCategories)
-            } else if (name === "course") { //beginner, advanced, etc
-                setIsChecked((prevState) => {
-                    return { ...prevState, [value]: true }
-                });
-                addSelection(name, value);
-                setFilterCategories((prevState) => ({
-                    ...prevState,
-                    [name]: [...prevState[name], newSelectionAdd]
-                }));
-                console.log(filterCategories)
-            }
+    useEffect(() => {
+    }, [isChecked]);
+
+    const handleFilterChange = (e) => {
+        const { name, value, checked } = e.target;
+        setFilterValues(() => ({
+            name: name,
+            value: value,
+            checked: checked,
+        }))
+        setIsChecked((prevState) => ({ ...isChecked, [value]: !prevState[value] }));
+        if (!isChecked[value]) {
+            setFilterCategories((prevState) => ({
+                ...prevState,
+                [name]: [...prevState[name], value]
+            }));
         } else {
-            if (name === "subjectMatter1") { //maths, science, art, etc
-                setIsChecked((prevState) => {
-                    return { ...prevState, [value]: false }
-                });
-                removeSelection(name, value);
-                setFilterCategories((prevState) => ({
-                    ...prevState,
-                    [name]: newSelection,
-                }));
-                console.log(filterCategories)
-            } else if (name === "subscription") { //free, premium
-                setIsChecked((prevState) => {
-                    return { ...prevState, [value]: false }
-                });
-                removeSelection(name, value);
-                setFilterCategories((prevState) => ({
-                    ...prevState,
-                    [name]: newSelection,
-                }));
-                console.log(filterCategories)
-            } else if (name === "course") { //beginner, advanced, etc
-                setIsChecked((prevState) => {
-                    return { ...prevState, [value]: false }
-                });
-                removeSelection(name, value);
-                setFilterCategories((prevState) => ({
-                    ...prevState,
-                    [name]: newSelection,
-                }));
-                console.log(filterCategories)
-            }
-        }
+            setFilterCategories((prevState) => ({
+                ...prevState,
+                [name]: filterCategories[name].filter((val) => val !== value),
+            }));
+        };
     };
 
-    const fetchProjectLibrary = async () => {
-        await Axios.get(process.env.REACT_APP_FETCH_PROJECT_LIBRARY)
+    const fetchProjectLibrary = () => {
+        Axios.get(process.env.REACT_APP_FETCH_PROJECT_LIBRARY)
             .then(res => {
-                console.log({projectLibrary: res});
-                setProjectLibrary(res);
+                setProjectLibrary(res.data);
+                setCopyProjectLibrary(res.data)
             })
             .catch(err => {
-                console.log(err);
+                throw err;
             });
+    };
+
+    const fetchProject = (project_id) => {
+        Axios.get(`http://localhost:8090/project/${project_id}`)
+            .then(res => {
+                console.log({project: res.data})
+                setProject(res.data)
+            })
+            .catch(err => {
+                throw err;
+            })
     };
 
     const fetchProgressHistory = async () => {
         await Axios.get(process.env.REACT_APP_FETCH_PROGRESS_HISTORY)
             .then(res => {
                 setProgressHistory(res.data);
-                console.log({progressHistory: progressHistory})
-                //res.data.map()
             })
             .catch(err => {
-                console.log(err)
+                throw err
             });
     };
 
+    const filter = () => {
+        let query = {};
+        for (let keys in filterCategories) {
+            if (filterCategories[keys].constructor && Array && filterCategories[keys].length > 0) {
+                query[keys] = filterCategories[keys];
+            };
+        };
+        return query;
+    };
+
+    const filterData = async (query) => {
+        const filtered = copyProjectLibrary?.filter((item) => {
+            for (let key in query) {
+                if (item[key] === undefined || !query[key].includes(item[key])) {
+                    return false;
+                }
+            }
+            return true;
+        });
+        setProjectLibrary(filtered);
+        return filtered;
+    };
+
+    useEffect(() => {
+        filter();
+        filterData(filter());
+    }, [isChecked]);
+
     return {
+        project,
         projectLibrary,
+        fetchProject,
         fetchProjectLibrary,
         isChecked,
         handleFilterChange,
         fetchProgressHistory,
         progressHistory,
+        filterCategories,
+        setProjectLibrary,
+        filter,
+        filterData,
+        copyProjectLibrary,
+        setCopyProjectLibrary
     };
 };

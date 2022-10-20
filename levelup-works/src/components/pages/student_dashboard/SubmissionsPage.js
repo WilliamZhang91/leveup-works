@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSubmissions } from '../../Hooks/useSubmissions';
 import "../../../styles/pages/homepage.css";
-import Axios from "axios";
+import { Modal } from '../../templates/Modal';
 import { FileUpload } from '../../templates/FileUpload';
 import showTeacher from "../../../images/pages/dashboard/student_dashboard/submissions/showteacher.png";
 import sendPhoto from "../../../images/pages/dashboard/student_dashboard/submissions/sendphoto.png";
 import callTeacher from "../../../images/pages/dashboard/student_dashboard/submissions/callteacher.png";
 
-export const SubmissionsPage = ({ tabSelected }) => {
+export const SubmissionsPage = ({ tabSelected, student_id, project_id }) => {
 
-  const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(null);
+  const {
+    file,
+    setFile,
+    preview,
+    setPreview,
+    showModal,
+    setShowModal,
+    fileUploadHandler,
+    uploadHandler,
+  } = useSubmissions();
 
-  console.log({ file: file })
-
-  const fileUploadHandler = async () => {
-    const formData = new FormData();
-    formData.append("file", file);
-    await Axios.post("http://localhost:8090/project/submit", formData)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
-  }
+  const closeModal = () => {
+    setShowModal({
+      display: false,
+      success: false,
+    });
+  };
 
   return (
     <>
+      {showModal.display ? <Modal closeModal={closeModal} /> : null}
       <div className="dashboard-layout" style={{ display: tabSelected === 5 ? "block" : "none", color: "#7c7c83" }}>
         <div style={{ margin: "100px", display: "flex" }}>
           <div className="submissions" style={{ width: "50%" }}>
@@ -41,7 +48,7 @@ export const SubmissionsPage = ({ tabSelected }) => {
                   <div>Choose an image</div>
                 </button>
                 :
-                <button className="submissions-button" onClick={fileUploadHandler}>
+                <button className="submissions-button"  onClick={() => uploadHandler(student_id, project_id)}>
                   <img src={sendPhoto} alt="send-photo" />
                   <div>Send Photo</div>
                 </button>

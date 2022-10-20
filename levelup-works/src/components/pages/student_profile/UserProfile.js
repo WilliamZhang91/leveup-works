@@ -9,7 +9,7 @@ import "../../../styles/pages/homepage.css";
 export const UserProfile = () => {
 
     const { studentProfile, fetchStudentProfile } = useStudentProfile();
-    const { getIdTokenStudent, studentIdToken, setStudentIdToken } = useCredentials();
+    const { getIdTokenStudent } = useCredentials();
     const params = useParams();
     const scope = 'read:user';
 
@@ -23,12 +23,6 @@ export const UserProfile = () => {
             console.log("exited")
         }
     }, []);
-
-    //setTimeout(() => {
-    //    fetchStudentProfile(studentIdToken && studentIdToken._app_metadata.studentid);
-    //}, 2000);
-    
-    console.log({secondToLast: studentIdToken})
 
     return <>
         {

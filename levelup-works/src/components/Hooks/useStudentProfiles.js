@@ -13,7 +13,6 @@ export const useStudentProfiles = () => {
             audience: process.env.REACT_APP_AUDIENCE,
             scope: 'read:teacher',
         });
-        console.log({accessToken: accessToken})
 
         return await Axios.get(process.env.REACT_APP_FETCH_ALL_STUDENTS, {
             headers: {
@@ -21,12 +20,12 @@ export const useStudentProfiles = () => {
             },
         })
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setStudentProfiles(res);
             })
             .catch(err => {
-                console.log(err);
                 setErrorMessage("Unable to retrieve student profiles");
+                throw new Error(err);
             });
     };
 
@@ -44,13 +43,13 @@ export const useStudentProfile = () => {
     const fetchStudentProfile = async (id) => {
         return await Axios.get(`http://localhost:8090/student/${id}`)
             .then(res => {
-                console.log(res);
-                console.log("fetchStudentProfile called");
+                // console.log(res);
+                // console.log("fetchStudentProfile called");
                 setStudentProfile(res);
                 return
             })
             .catch(err => {
-                console.log(err);
+                throw err
             });
     };
 

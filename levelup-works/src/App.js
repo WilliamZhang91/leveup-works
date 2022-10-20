@@ -66,7 +66,7 @@ function App() {
           {/*project routes*/}
           <Route path="project_library" element={<ProjectLibrary />} />
           <Route
-            path="project_library/project_dashboard"
+            path="project_library/project/:id"
             element={
               <ProjectDashboard setIsDashboardOpen={setIsDashboardOpen}
               />}

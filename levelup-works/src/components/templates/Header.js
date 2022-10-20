@@ -22,7 +22,12 @@ export const Header = ({ isDashboardOpen }) => {
         setShowModal(!showModal);
     };
 
-    const avatar = <img src={emptyAvatar} style={{ width: "40px", height: "auto", margin: "auto" }} />
+    const avatar =
+        <img
+            className="avatar"
+            src={emptyAvatar}
+            style={{ width: "40px", height: "auto", margin: "auto" }}
+        />
 
     const getPrivateRoute = async () => {
         try {
@@ -97,7 +102,7 @@ export const Header = ({ isDashboardOpen }) => {
                 <div>
                     <div className={`${isDashboardOpen ? "nav none" : "nav"}`}>
                         <h3 data-testid="login" className="login">
-                            <LoginButton login={avatar} />
+                            <LoginButton login={avatar} data-testid="empty-avatar" />
                             <ProfileHeader />
                         </h3>
                         <h3>|</h3>

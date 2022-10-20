@@ -46,8 +46,6 @@ export const ProgressCard = () => {
         };
     });
 
-    console.log({ newProgressHistory2: newProgressHistory2 })
-
     // const progress = Object.values(progressHistory && newProgressHistory.reduce((a, { name, arr }) => {
     //     a[name] = a[name] || { name, arr: new Set() };
     //     a[name].arr.add(arr);
@@ -86,13 +84,6 @@ export const ProgressCard = () => {
     //         }
     //     }, {})
     // );
-
-    let obj = {}
-    obj["name"] = "hello"
-    obj["name2"] = "goodbye"
-    obj["name3"] = {}
-    obj["name3"]["innername"] = "feet"
-    console.log(obj)
 
     const progress2 = newProgressHistory2.reduce(function (r, a) {
         //a = newProgressHistory2[1][2][3] etc
@@ -133,12 +124,12 @@ export const ProgressCard = () => {
     //     }, {})
     // )
 
-    console.log(studentProfiles)
-    console.log({progress2: progress2})
-    console.log(newProgressHistory)
+    // console.log(studentProfiles)
+    // console.log({progress2: progress2})
+    // console.log(newProgressHistory)
 
 
-    console.log(progress2)
+    // console.log(progress2)
 
     return <>
         <div className="progress-tracker-card">

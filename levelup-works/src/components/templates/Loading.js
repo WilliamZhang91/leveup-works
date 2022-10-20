@@ -5,7 +5,7 @@ const loadingImage = "https://cdn.auth0.com/blog/auth0-react-sample/assets/loadi
 
 export const Loading = () => {
 
-    return <div className="spinner">
+    return <div className="spinner" data-testid="loading-screen">
         <img className="spinner_svg" src={loadingImage} alt="loading..."/>
     </div>
 };
