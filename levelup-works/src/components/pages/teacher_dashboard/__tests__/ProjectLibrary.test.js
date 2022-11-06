@@ -1,11 +1,8 @@
 import { ProjectLibrary } from "../ProjectLibrary";
-import { Loading } from "../../../templates/Loading";
 import { Auth0Provider } from '@auth0/auth0-react';
 import { BrowserRouter } from "react-router-dom";
 import { act, render, cleanup, renderHook } from "@testing-library/react";
 import { useProjectLibrary } from "../../../Hooks/useProjectLibrary";
-import * as axios from "axios";
-import MockAdapter from "axios-mock-adapter";
 
 jest.mock('@auth0/auth0-react', () => ({
     Auth0Provider: ({ children }) => <div>{children}</div>,

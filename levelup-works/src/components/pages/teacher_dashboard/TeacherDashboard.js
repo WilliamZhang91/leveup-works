@@ -3,14 +3,11 @@ import "../../../styles/pages/homepage.css";
 import { DashboardCard } from "../../templates/DashboardCard";
 import { useTab } from "../../Hooks/useTab";
 import { useStudentProfiles } from "../../Hooks/useStudentProfiles";
-import { useProjectLibrary } from "../../Hooks/useProjectLibrary";
 import { Link } from "react-router-dom";
 import { HelpRequests } from "./HelpRequests";
 import { ProgressTracker } from "./ProgressTracker";
 import { ProjectSubmissions } from "./ProjectSubmissions";
 import { StudentProfiles } from "./StudentProfiles";
-import { withAuthenticationRequired } from '@auth0/auth0-react';
-import { useAuth0 } from "@auth0/auth0-react";
 import help_request from "../../../images/pages/dashboard/help_requests.png";
 import progress_tracker from "../../../images/pages/dashboard/progress_tracker.png"
 import project_library from "../../../images/pages/dashboard/project_library.png";
@@ -20,11 +17,9 @@ import student_profiles from "../../../images/pages/dashboard/student_profiles.p
 export const TeacherDashboard = ({ setIsDashboardOpen }) => {
 
     const { tabSelected, toggleTab } = useTab();
-    const { isAuthenticated } = useAuth0();
 
     const {
         studentProfiles,
-        errorMessage,
         fetchStudentProfiles
     } = useStudentProfiles();
 
@@ -101,8 +96,8 @@ export const TeacherDashboard = ({ setIsDashboardOpen }) => {
                     <button className="button-3">More Projects</button>
                 </div>
                 <DashboardCard tabSelected={tabSelected} studentProfiles={studentProfiles}>
-                    <ProgressTracker tabSelected={tabSelected} />
                     <StudentProfiles tabSelected={tabSelected} studentProfiles={studentProfiles} />
+                    <ProgressTracker tabSelected={tabSelected} />
                     <HelpRequests tabSelected={tabSelected} />
                     <ProjectSubmissions tabSelected={tabSelected} />
                 </DashboardCard>

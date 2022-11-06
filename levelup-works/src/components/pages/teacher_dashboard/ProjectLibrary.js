@@ -51,12 +51,13 @@ export const ProjectLibrary = () => {
                     />
                     <div className="projects">
                         {projectLibrary?.map((project, index) => {
+                            console.log(project)
                             return (
                                 <div key={index} style={{ margin: "35px 50px 35px 0" }}>
                                     <Link style={{ textDecoration: "none" }} to={`/project_library/project/${project.projectID}`}>
                                         <img
                                             className="image"
-                                            src={project.subject_matter3}
+                                            src={project.subjectMatter3}
                                             alt={`project_${project.projectID}`}
                                         />
                                     </Link>

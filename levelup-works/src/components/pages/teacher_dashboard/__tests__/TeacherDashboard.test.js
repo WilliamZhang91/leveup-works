@@ -127,8 +127,7 @@ describe("Teacher Dashboard", () => {
         const { result } = renderHook(() => useStudentProfiles());
         expect(result.current.studentProfiles).toMatchObject({});
         await act(async () => {
-            console.log("yes")
-            result.current.fetchStudentProfiles()
+            result.current.fetchStudentProfiles();
         });
         await waitFor(() => {
             try {
@@ -136,9 +135,8 @@ describe("Teacher Dashboard", () => {
                 expect(result.current.studentProfiles).toMatchObject(mockStudents);
             } 
             catch (err) {
-                console.log({err: err})
+                return err;
             }
         });
     });
-
-});
+})

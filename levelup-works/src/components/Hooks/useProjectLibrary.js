@@ -72,7 +72,6 @@ export const useProjectLibrary = () => {
     const fetchProject = (project_id) => {
         Axios.get(`http://localhost:8090/project/${project_id}`)
             .then(res => {
-                console.log({project: res.data})
                 setProject(res.data)
             })
             .catch(err => {
@@ -81,7 +80,7 @@ export const useProjectLibrary = () => {
     };
 
     const fetchProgressHistory = async () => {
-        await Axios.get(process.env.REACT_APP_FETCH_PROGRESS_HISTORY)
+        await Axios.get("http://localhost:8090/students/progress_history")
             .then(res => {
                 setProgressHistory(res.data);
             })

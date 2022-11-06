@@ -20,23 +20,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 function App() {
 
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
-  const { isAuthenticated, user } = useAuth0();
-  const {
-    isLoggedInStudent,
-    isLoggedInTeacher,
-    setIsLoggedInStudent,
-    setIsLoggedInTeacher,
-    checkLogin
-  } = useRoute();
-  const {
-    getIdToken,
-    getIdTokenStudent,
-    getIdTokenTeacher,
-    setStudentIdToken,
-    studentIdToken,
-    setTeacherIdToken,
-    teacherIdToken
-  } = useCredentials();
+  const { isLoggedInTeacher, checkLogin } = useRoute();
 
   useEffect(() => {
     checkLogin();
@@ -74,15 +58,15 @@ function App() {
 
           {/*user routes*/}
           {/* <Route element={<PrivateRouteStudent isLoggedInStudent={isLoggedInStudent} />}> */}
-            <Route path="account/user" element={<UserProfile />} />
-            <Route
-              path="student_dashboard"
-              element={
-                <StudentDashboard
-                  isDashboardOpen={isDashboardOpen}
-                  setIsDashboardOpen={setIsDashboardOpen}
-                />}
-            />
+          <Route path="account/user" element={<UserProfile />} />
+          <Route
+            path="student_dashboard"
+            element={
+              <StudentDashboard
+                isDashboardOpen={isDashboardOpen}
+                setIsDashboardOpen={setIsDashboardOpen}
+              />}
+          />
           {/* </Route> */}
         </Routes>
 

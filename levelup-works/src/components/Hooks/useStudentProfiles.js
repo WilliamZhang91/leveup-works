@@ -20,7 +20,6 @@ export const useStudentProfiles = () => {
             },
         })
             .then(res => {
-                // console.log(res);
                 setStudentProfiles(res);
             })
             .catch(err => {

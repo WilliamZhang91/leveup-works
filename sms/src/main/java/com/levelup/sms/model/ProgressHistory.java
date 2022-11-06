@@ -38,6 +38,10 @@ public class ProgressHistory implements Serializable {
         return id;
     }
 
+    public String getStudentName() {
+        return student.getName();
+    }
+
     public void setId(ProgressHistoryID id) {
         this.id = id;
     }

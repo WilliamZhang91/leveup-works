@@ -11,12 +11,8 @@ export const useRoute = () => {
         if (isAuthenticated) {
             if (user && user._app_metadata.role === 1) {
                 setIsLoggedInTeacher(true);
-                console.log({ studentIsLoggedIn: isLoggedInStudent });
-                console.log({ teacherIsLoggedIn: isLoggedInTeacher });
             } else if (user && user._app_metadata.role === 2) {
                 setIsLoggedInStudent(true);
-                console.log({ studentIsLoggedIn: isLoggedInStudent });
-                console.log({ teacherIsLoggedIn: isLoggedInTeacher });
             } else {
                 return;
             };
