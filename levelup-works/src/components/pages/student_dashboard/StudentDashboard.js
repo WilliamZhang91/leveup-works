@@ -2,30 +2,24 @@ import React, { useEffect } from "react";
 import "../../../styles/pages/homepage.css";
 import { DashboardCard } from "../../templates/DashboardCard";
 import { useTab } from "../../Hooks/useTab";
-import { useStudentProfiles } from "../../Hooks/useStudentProfiles";
-import { useAuth0 } from "@auth0/auth0-react";
 import { LearningObjectives } from "./LearningObjectives";
 import { InstructionsPage } from "./InstructionsPage";
 import { ProjectsPage } from "./ProjectsPage";
 import { SubmissionsPage } from "./SubmissionsPage";
 import { TutorialPage } from "./TutorialPage";
+import { useParams } from "react-router-dom";
+import { useProjectLibrary } from "../../Hooks/useProjectLibrary";
 import instructions from "../../../images/pages/dashboard/instructions.png";
 import objectives from "../../../images/pages/dashboard/objectives.png"
 import submit from "../../../images/pages/dashboard/submit.png";
 import video from "../../../images/pages/dashboard/video.png";
-import project from "../../../images/pages/dashboard/project.png";
-import student_profiles from "../../../images/pages/dashboard/student_profiles.png";
-import { Link } from "react-router-dom";
+import preview from "../../../images/pages/dashboard/project.png";
 
-export const StudentDashboard = ({ isDashboardOpen, setIsDashboardOpen }) => {
+export const StudentDashboard = ({ setIsDashboardOpen, isLoggedInStudent }) => {
 
     const { tabSelected, toggleTab } = useTab();
-    const { isAuthenticated } = useAuth0();
-    const {
-        studentProfiles,
-        errorMessage,
-        fetchStudentProfiles
-    } = useStudentProfiles();
+    const { fetchProject, project } = useProjectLibrary();
+    const params = useParams(); //params.id
 
     useEffect(() => {
         setIsDashboardOpen(true);
@@ -39,7 +33,7 @@ export const StudentDashboard = ({ isDashboardOpen, setIsDashboardOpen }) => {
             <div className="sidebar">
                 <div className="tabs">
                     <section className="teacher_pic">
-                        <img src="./images/profile_pic/teacher_1.png" alt="profile_pic" />
+                        <img src="/images/profile_pic/teacher_1.png" alt="profile_pic" />
                     </section>
                     <div onClick={() => toggleTab(1)}
                         className={tabSelected === 1 ? "tab-selected" : null}>
@@ -63,7 +57,7 @@ export const StudentDashboard = ({ isDashboardOpen, setIsDashboardOpen }) => {
                     </div>
                     <div onClick={() => toggleTab(4)} className={tabSelected === 4 ? "tab-selected" : null}>
                         <div data-testid="project">
-                            <img src={project} alt="project" />
+                            <img src={preview} alt="project" />
                             <p>PROJECT</p>
                         </div>
                     </div>
@@ -97,7 +91,12 @@ export const StudentDashboard = ({ isDashboardOpen, setIsDashboardOpen }) => {
                     <InstructionsPage tabSelected={tabSelected} />
                     <TutorialPage tabSelected={tabSelected} />
                     <ProjectsPage tabSelected={tabSelected} />
-                    <SubmissionsPage tabSelected={tabSelected} />
+                    <SubmissionsPage
+                        tabSelected={tabSelected}
+                        student_id={params.id}
+                        project_id={project.projectID}
+                        isLoggedInStudent={isLoggedInStudent}
+                    />
                 </DashboardCard>
             </div>
         </div>

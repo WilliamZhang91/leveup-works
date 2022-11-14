@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Header } from './components/templates/Header';
 import { Footer } from './components/templates/Footer';
 import { Homepage } from './components/pages/Homepage';
@@ -8,22 +8,20 @@ import { TeacherDashboard } from "./components/pages/teacher_dashboard/TeacherDa
 import { StudentDashboard } from "./components/pages/student_dashboard/StudentDashboard";
 import { ProfilePage } from "./components/pages/teacher_dashboard/ProfilePage";
 import { ProjectLibrary } from "./components/pages/teacher_dashboard/ProjectLibrary";
-import { ProjectDashboard } from "./components/pages/teacher_dashboard/ProjectDashboard";
 import { UserProfile } from "./components/pages/student_profile/UserProfile";
-import { useCredentials } from "./components/Hooks/useCredentials";
 import { PrivateRouteTeacher } from "./components/templates/PrivateRouteTeacher";
-import { PrivateRouteStudent } from "./components/templates/PrivateRouteStudent";
 import { useRoute } from "./components/Hooks/useRoute";
-import { getIdTokenTeacher, getIdTokenStudent, studentIdToken } from "./components/Hooks/useCredentials";
-import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
 
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
-  const { isLoggedInTeacher, checkLogin } = useRoute();
+  const { isLoggedInStudent, isLoggedInTeacher, checkLogin } = useRoute();
 
   useEffect(() => {
     checkLogin();
+    setTimeout(() => {
+      console.log(isLoggedInStudent)
+    })
   }, [checkLogin]);
 
   return (
@@ -49,20 +47,12 @@ function App() {
 
           {/*project routes*/}
           <Route path="project_library" element={<ProjectLibrary />} />
+          <Route path="account/user" element={<UserProfile />} />
           <Route
             path="project_library/project/:id"
             element={
-              <ProjectDashboard setIsDashboardOpen={setIsDashboardOpen}
-              />}
-          />
-
-          {/*user routes*/}
-          {/* <Route element={<PrivateRouteStudent isLoggedInStudent={isLoggedInStudent} />}> */}
-          <Route path="account/user" element={<UserProfile />} />
-          <Route
-            path="student_dashboard"
-            element={
               <StudentDashboard
+                isLoggedInStudent={isLoggedInStudent}
                 isDashboardOpen={isDashboardOpen}
                 setIsDashboardOpen={setIsDashboardOpen}
               />}

@@ -1,7 +1,5 @@
-import { StudenDashboard, StudentDashboard } from "../StudentDashboard";
-import { useTab } from "../../../Hooks/useTab";
-import { render, renderHook, act, cleanup } from "@testing-library/react";
-import objectives from "../../../../images/pages/dashboard/objectives.png";
+import { StudentDashboard } from "../StudentDashboard";
+import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { BrowserRouter } from 'react-router-dom';
 
@@ -20,7 +18,7 @@ describe("Student Dashboard", () => {
 
     afterEach(() => {
         cleanup();
-        jest.clearAllMocks;
+        jest.clearAllMocks();
     });
 
     test("Renders the first tab and it's text content/image", () => {

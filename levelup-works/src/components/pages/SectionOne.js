@@ -13,7 +13,7 @@ export const SectionOne = () => {
                 <h1 className="title">What we offer</h1>
                 <p className="font-styling">The Createive Problem Solving programme is a series of digital creation projects aimed to encourage self-motivation and student agency, designed by New Zealand's leading IT industry experts and schools.</p>
                 <h1 className="title">What will students create?</h1>
-                <div className="flex">'
+                <div className="flex">
                     <div className="wrapper">
                         <div className="relative">
                             <img className="blue-square" src={blue_square} />

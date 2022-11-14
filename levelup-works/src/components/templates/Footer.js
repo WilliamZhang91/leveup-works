@@ -5,7 +5,7 @@ export const Footer = ({ isDashboardOpen }) => {
         {
             isDashboardOpen ?
                 <div className="footer-dashboard">
-                    <img style={{ height: "30px", width: "auto" }} src="images/templates/copyright.png" />
+                    <img style={{ height: "30px", width: "auto" }} src="/images/templates/copyright.png" />
                 </div>
                 :
                 <div className="width footer-color">

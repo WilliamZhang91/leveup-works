@@ -9,6 +9,11 @@ import { useTab } from "../../Hooks/useTab";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useProjectLibrary } from "../../Hooks/useProjectLibrary";
+import instructions from "../../../images/pages/dashboard/instructions.png";
+import objectives from "../../../images/pages/dashboard/objectives.png"
+import submit from "../../../images/pages/dashboard/submit.png";
+import video from "../../../images/pages/dashboard/video.png";
+import previews from "../../../images/pages/dashboard/project.png";
 
 export const ProjectDashboard = ({ setIsDashboardOpen }) => {
 
@@ -31,36 +36,36 @@ export const ProjectDashboard = ({ setIsDashboardOpen }) => {
             <div className="sidebar">
                 <div className="tabs">
                     <section className="teacher_pic">
-                        <img src="./images/profile_pic/teacher_1.png" />
+                        <img src="./images/profile_pic/teacher_1.png" alt="profile_pic" />
                     </section>
                     <div onClick={() => toggleTab(1)} className={tabSelected === 1 ? "tab-selected" : null}>
                         <div>
-                            <img src="images/pages/dashboard/progress_tracker.png" />
+                            <img src={objectives} />
                             <p>GOAL</p>
                         </div>
                     </div>
                     <div onClick={() => { toggleTab(2) }}
                         className={tabSelected === 2 ? "tab-selected" : null}>
                         <div>
-                            <img src="images/pages/dashboard/student_profiles.png" />
+                            <img src={instructions} />
                             <p>INSTRUCTIONS</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(3)} className={tabSelected === 3 ? "tab-selected" : null}>
                         <div>
-                            <img src="images/pages/dashboard/help_requests.png" />
+                            <img src={video} />
                             <p>TUTORIAL</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(4)} className={tabSelected === 4 ? "tab-selected" : null}>
                         <div>
-                            <img src="images/pages/dashboard/project_submissions.png" />
+                            <img src={previews} />
                             <p>PREVIEW</p>
                         </div>
                     </div>
                     <div onClick={() => toggleTab(5)} className={tabSelected === 5 ? "tab-selected" : null}>
                         <div>
-                            <img src="images/pages/dashboard/project_library.png" />
+                            <img src={submit} />
                             <p>SUBMIT</p>
                         </div>
                     </div>

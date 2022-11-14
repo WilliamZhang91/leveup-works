@@ -39,7 +39,6 @@ export const useCredentials = () => {
                 }
             });
             setTeacherIdToken(idToken.data)
-            console.log(accessToken);
         } catch (error) {
             throw error
         };

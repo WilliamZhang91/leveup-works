@@ -108,7 +108,7 @@ p {
   width: 487px;
   height: 256px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .submissions-button {
@@ -219,21 +219,26 @@ p {
     flex-direction: column;
     align-items: center;
   }
+
   .sidebar {
     width: 8%;
   }
+
   .sidebar .tabs div p {
     display: none;
   }
+
   .sidebar .tabs div img {
     height: 32px;
     width: auto;
     margin: auto;
   }
+
   .card {
     width: 100%;
   }
 }
+
 .flex-container {
   display: flex;
   flex-basis: 0;
@@ -476,6 +481,7 @@ p {
 
 .flex {
   display: flex;
+  justify-content: space-around;
 }
 
 .flex2 {
@@ -534,13 +540,16 @@ p {
   .project-img {
     width: 500px;
   }
+
   .font-styling {
     font-size: 18px;
     font-weight: bold;
   }
+
   .blue-square {
     width: 120px;
   }
+
   .inner-image {
     position: absolute;
     top: 20px;
@@ -548,45 +557,56 @@ p {
     color: white;
     text-align: center;
   }
+
   .inner-image-category {
     width: 80%;
     height: auto;
   }
+
   .title {
     font-size: 25px;
     font-weight: bold;
   }
+
   .kids-img {
     width: 250px;
   }
+
   .inner-image2 {
     font-size: 20px;
   }
+
   .classroom-image {
     width: 100%;
     margin: 0 10% 0 0;
   }
 }
+
 @media (max-width: 1456px) {
   .kids-img {
     width: 220px;
   }
+
   .inner-image2 {
     font-size: 15px;
   }
 }
+
 @media (max-width: 1374px) {
   .one {
     flex-direction: column;
     align-items: center;
   }
+
   .one-width {
     width: 70%;
     text-align: center;
   }
+
   .project-img {
     width: 700px;
   }
+
   .inner-image {
     position: absolute;
     top: 20px;
@@ -594,43 +614,53 @@ p {
     color: white;
     text-align: center;
   }
+
   .flex {
     justify-content: center;
   }
+
   .hero-img {
     width: 100%;
     display: none;
   }
+
   .hero-img-resize {
     width: 100%;
     display: block;
   }
+
   .classroom-image {
     margin: auto;
   }
 }
+
 @media (max-width: 1374px) {
   .three {
     text-align: center;
   }
+
   .section-three-description {
     display: none;
     justify-content: flex-start;
   }
+
   .font-styling2 {
     font-size: 25px;
     font-weight: 900;
   }
+
   .flex2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 }
+
 @media (max-width: 1184px) {
   .kids-img {
     width: 200px;
   }
+
   .button {
     font-family: "Dosis", sans-serif;
     background-color: white;
@@ -644,42 +674,53 @@ p {
     cursor: pointer;
     font-size: 12px;
   }
+
   .kids-inner-image2 {
     display: none;
   }
+
   .inner-image2 {
     font-size: 25px;
   }
+
+  .button {
+    margin: 10px 0;
+  }
+
+  .flex {
+    flex-direction: column;
+    align-items: center;
+  }
 }
+
 @media (max-width: 1028px) {
   .project-img {
     width: 650px;
   }
-  .flex {
-    justify-content: space-around;
-  }
 }
+
 @media (max-width: 800px) {
   .project-img {
     width: 500px;
   }
 }
+
 @media (max-width: 412px) {
   .project-img {
     width: 100%;
   }
-  .flex {
-    justify-content: space-around;
-  }
+
   .classroom-image {
     width: 100%;
   }
+
   .hero-img-resize {
     width: 100%;
     display: none;
   }
+
   .hero-img-mobile {
     width: 100%;
     display: block;
   }
-}/*# sourceMappingURL=homepage.css.map */
+}

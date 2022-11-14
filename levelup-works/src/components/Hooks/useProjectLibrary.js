@@ -80,7 +80,7 @@ export const useProjectLibrary = () => {
     };
 
     const fetchProgressHistory = async () => {
-        await Axios.get("http://localhost:8090/students/progress_history")
+        await Axios.get(process.env.REACT_APP_FETCH_PROGRESS_HISTORY)
             .then(res => {
                 setProgressHistory(res.data);
             })

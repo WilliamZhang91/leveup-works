@@ -2,25 +2,6 @@ import { ProgressCard } from "../../../templates/ProgressCard";
 import { render } from "@testing-library/react";
 import '@testing-library/jest-dom';
 
-const mockProgress = [
-    {
-        name: "John Doe",
-        studentID: 1,
-        projectID: [
-            1,
-            6
-        ],
-        completed: true
-    },
-    {
-        name: "Jane Doe",
-        studentID: 2,
-        projectID: 2,
-        completed: true
-    }
-]
-
-
 jest.mock('@auth0/auth0-react', () => ({
     Auth0Provider: ({ children }) => <div>{children}</div>,
     withAuthenticationRequired: ((component, _) => component),
@@ -50,6 +31,25 @@ jest.mock('@auth0/auth0-react', () => ({
         }
     },
 }));
+
+
+const mockProgress = [
+    {
+        name: "John Doe",
+        studentID: 1,
+        projectID: [
+            1,
+            6
+        ],
+        completed: true
+    },
+    {
+        name: "Jane Doe",
+        studentID: 2,
+        projectID: 2,
+        completed: true
+    }
+]
 
 describe("Progress Tracker", () => {
     test("Renders correct number of students", () => {

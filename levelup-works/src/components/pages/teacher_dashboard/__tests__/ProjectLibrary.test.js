@@ -1,7 +1,7 @@
 import { ProjectLibrary } from "../ProjectLibrary";
 import { Auth0Provider } from '@auth0/auth0-react';
 import { BrowserRouter } from "react-router-dom";
-import { act, render, cleanup, renderHook } from "@testing-library/react";
+import { act, render, cleanup, renderHook, screen } from "@testing-library/react";
 import { useProjectLibrary } from "../../../Hooks/useProjectLibrary";
 
 jest.mock('@auth0/auth0-react', () => ({
@@ -22,17 +22,32 @@ jest.mock('@auth0/auth0-react', () => ({
                         "role": 9,
                         "studentid": 9,
                         "teacherid": 9
-                    },
-                },
+                    }
+                }
             },
             isAuthenticated: true,
             loginWithRedirect: jest.fn(),
             getAccessTokenSilently: jest.fn().mockImplementation(
                 () => new Promise(resolve => resolve("test-token"))
             )
-        };
-    },
+        }
+    }
 }));
+
+const mockProjectLibrary = {
+    project_id: '1',
+    activity_type: 'chatbot',
+    course: 'beginner',
+    instructions: '',
+    subject_matter1: 'computer_science',
+    subject_matter2: 'Introduction',
+    subject_matter3: '/images/projects/project1.png',
+    subsciption: 'free',
+    year: '',
+    videos: ''
+}
+
+// jest.mock("axios", () => jest.fn(() => Promise.resolve({ data: mockProjectLibrary })));
 
 describe("Student Dashboard", () => {
     let projectLibraryComponent;
@@ -44,7 +59,7 @@ describe("Student Dashboard", () => {
         projectLibraryComponent = render(
             <Auth0Provider getAccessTokenSilently={getAccessTokenSilently} >
                 <BrowserRouter>
-                    <ProjectLibrary setIsDashboardOpen={mockFunction} />
+                    <ProjectLibrary setIsDashboardOpen={mockFunction}/>
                 </BrowserRouter>
             </Auth0Provider>
         );
@@ -56,10 +71,7 @@ describe("Student Dashboard", () => {
     });
 
     test("Renders loading svg if projectLibrary is empty", async () => {
-        act(() => {
-            result.current.fetchProjectLibrary()
-        });
-        expect(result.current.projectLibrary).toStrictEqual([]);
+        screen.debug();
     });
 
 });
