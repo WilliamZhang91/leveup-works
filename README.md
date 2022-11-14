@@ -63,5 +63,5 @@ spring.jpa.hibernate.ddl-auto=update
 debug=enabled
 ```
 
-4. Install dependencies
+4. Install Spring dependencies
 
