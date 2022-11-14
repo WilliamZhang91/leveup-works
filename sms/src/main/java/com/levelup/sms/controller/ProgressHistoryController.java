@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/students", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/progress_history", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin(origins = "*")
 public class ProgressHistoryController {
 
     @Autowired
     private ProgressHistoryService progressHistoryService;
 
-    @GetMapping("/progress_history")
+    @GetMapping("")
     public List<ProgressHistory> getAllProgressHistory() {
         return progressHistoryService.getProgressHistory();
     }
 
-    @PostMapping(value = "/submit", consumes = {
+    @PostMapping(value = "", consumes = {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE
     })

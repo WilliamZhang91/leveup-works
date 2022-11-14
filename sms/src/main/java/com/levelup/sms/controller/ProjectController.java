@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/project")
+@RequestMapping("/projects")
 @CrossOrigin(origins = "*")
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @PostMapping("/add_project")
+    @PostMapping("")
     public String add(@RequestBody Project project) {
         projectService.saveProject(project);
         return "New Project has been added";
     }
 
-    @GetMapping("/all_projects")
+    @GetMapping("")
     public List<Project> getAllProjects() {
         return projectService.getAllProjects();
     }
